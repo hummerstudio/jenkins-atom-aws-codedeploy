@@ -1,0 +1,112 @@
+{
+  "atomCode": "aws-codedeploy",
+  "name": "AWS CodeDeploy",
+  "version": "1.0.0",
+  "description": "Starts a CodeDeploy deployment from an S3 revision and waits for it to finish.",
+  "execution": {
+    "packagePath": "aws-codedeploy.jar",
+    "language": "java",
+    "target": "$atom_java_path -cp aws-codedeploy.jar com.jenkinschina.atom.sdk.AtomRunner"
+  },
+  "input": {
+    "region": {
+      "label": "区域（如 us-east-1）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "accessKey": {
+      "label": "Access Key ID",
+      "type": "password",
+      "default": ""
+    },
+    "secretKey": {
+      "label": "Secret Access Key",
+      "type": "password",
+      "default": ""
+    },
+    "sessionToken": {
+      "label": "Session Token（临时凭据时给）",
+      "type": "password",
+      "default": ""
+    },
+    "applicationName": {
+      "label": "应用名",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "deploymentGroup": {
+      "label": "部署组",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "deploymentConfig": {
+      "label": "部署配置",
+      "type": "vuex-input",
+      "default": "CodeDeployDefault.OneAtATime"
+    },
+    "s3Bucket": {
+      "label": "修订包所在 bucket",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "s3Key": {
+      "label": "修订包 key",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "bundleType": {
+      "label": "包类型（zip / tar / tgz）",
+      "type": "vuex-input",
+      "default": "zip"
+    },
+    "description": {
+      "label": "描述",
+      "type": "vuex-input",
+      "default": "deployed by a Jenkins atom"
+    },
+    "wait": {
+      "label": "等待部署结束",
+      "type": "checkbox",
+      "default": "true"
+    },
+    "waitTimeoutSeconds": {
+      "label": "等待上限（秒）",
+      "type": "vuex-input",
+      "default": "900"
+    },
+    "endpoint": {
+      "label": "自定义端点（测试用，留空走官方）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "timeoutSeconds": {
+      "label": "单次请求超时（秒）",
+      "type": "vuex-input",
+      "default": "60"
+    }
+  },
+  "output": {
+    "deploymentId": {
+      "type": "string",
+      "description": "部署 ID"
+    },
+    "status": {
+      "type": "string",
+      "description": "最终状态"
+    },
+    "applicationName": {
+      "type": "string",
+      "description": "应用名"
+    },
+    "deploymentGroup": {
+      "type": "string",
+      "description": "部署组"
+    }
+  },
+  "x-jenkins": {
+    "protocol": "jenkins-1",
+    "requires": {
+      "runner": ">=0.4.0"
+    }
+  }
+}

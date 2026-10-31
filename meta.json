@@ -1,0 +1,12 @@
+{
+  "name": "AWS CodeDeploy",
+  "summary": "Starts a CodeDeploy deployment from an S3 revision and waits for it to finish.",
+  "author": "hummerstudio",
+  "license": "MIT",
+  "tags": [
+    "official-port",
+    "aws",
+    "deploy"
+  ],
+  "homepage": "https://github.com/hummerstudio/jenkins-atom-aws-codedeploy"
+}

@@ -12,8 +12,8 @@ aws-java-sdk-codedeploy 插件通过 SDK 做同一件事。这里是一个**签�
 - `wait=false` 时只返回 `deploymentId`，适合触发即走
 
 ```bash
-./build.sh && ./tools/smoke.sh
+mvn verify
 ```
 
-smoke 会起一个**自己复算 SigV4 签名**的假端点：签名不对就 403。所以"跑通"这件事本身就证明了签名链是对的，
-而不是端点不验签。
+`src/test/java/atom/AwsCodeDeployIT.java` 会起一个**自己复算 SigV4 签名**的假端点（`tools/fake_aws.py`）：签名不对就 403。
+所以"跑通"这件事本身就证明了签名链是对的，而不是端点不验签。

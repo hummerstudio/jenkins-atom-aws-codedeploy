@@ -37,4 +37,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: aws-codedeploy-atom
-          path: atom/dist/aws-codedeploy/
+          path: atom/target/dist/aws-codedeploy/
